@@ -1,0 +1,5 @@
+{
+  "name": "Incubtek Client Portal",
+  "description": "A public-facing portal for Incubtek to showcase services and capture new business leads through an intelligent quote request form. This application simulates the public portal for lead generation.",
+  "requestFramePermissions": []
+}
