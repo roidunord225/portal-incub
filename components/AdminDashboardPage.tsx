@@ -14,7 +14,7 @@ interface AdminDashboardPageProps {
 
 const StatCard: React.FC<{ value: number; label: string; icon: React.ReactNode }> = ({ value, label, icon }) => (
   <div className="bg-white p-6 rounded-xl shadow-lg flex items-center">
-    <div className="bg-blue-600 p-3 rounded-full mr-4 text-white">{icon}</div>
+    <div className="bg-incubtek-orange p-3 rounded-full mr-4 text-white">{icon}</div>
     <div>
       <p className="text-3xl font-bold text-gray-900">{value}</p>
       <p className="text-gray-600">{label}</p>
@@ -42,19 +42,19 @@ const AdminDashboardPage: React.FC<AdminDashboardPageProps> = ({ user, stats, on
          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             <button 
                 onClick={() => onNavigate(View.AdminLeads)}
-                className="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition flex items-center justify-center"
+                className="bg-incubtek-orange text-white font-semibold px-6 py-3 rounded-lg hover:bg-orange-600 transition flex items-center justify-center"
             >
                 <LightBulbIcon /> <span className="ml-2">Gérer les Leads</span>
             </button>
             <button 
                 onClick={() => onNavigate(View.AdminHelpdesk)}
-                className="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition flex items-center justify-center"
+                className="bg-incubtek-orange text-white font-semibold px-6 py-3 rounded-lg hover:bg-orange-600 transition flex items-center justify-center"
             >
                 <i className="fas fa-ticket-alt mr-2"></i> Gérer le Helpdesk
             </button>
              <button 
                 onClick={() => onNavigate(View.AdminClients)}
-                className="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition flex items-center justify-center">
+                className="bg-incubtek-orange text-white font-semibold px-6 py-3 rounded-lg hover:bg-orange-600 transition flex items-center justify-center">
                 <BuildingOfficeIcon /> <span className="ml-2">Gérer les Clients</span>
             </button>
          </div>

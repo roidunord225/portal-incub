@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, User, Lead, LeadStatus, Ticket, TicketStatus, Attachment, Company, TicketType, TicketUrgency, Notification } from './types';
+import { View, User, Lead, LeadStatus, Ticket, TicketStatus, Attachment, Company, TicketType, TicketUrgency, Notification, Contract } from './types';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './components/HomePage';
@@ -17,7 +17,7 @@ import AdminTicketDetailPage from './components/AdminTicketDetailPage';
 import ClientTicketDetailPage from './components/ClientTicketDetailPage';
 import NotificationManager from './components/NotificationManager';
 import { SERVICES_DEMARRAGE, SERVICES_GESTION } from './constants';
-import { mockContracts, mockTickets, mockDocuments, mockLeads as initialLeads, mockCompanies as initialCompanies, mockAllUsers as initialUsers, mockAllContracts } from './mockData';
+import { mockContracts, mockTickets, mockDocuments, mockLeads as initialLeads, mockCompanies as initialCompanies, mockAllUsers as initialUsers, mockAllContracts as initialContracts } from './mockData';
 import { createLeadNotifications, createNewTicketNotifications, createTicketReplyNotification } from './services/notificationService';
 import { generateConfirmationEmail } from './services/geminiService';
 
@@ -32,6 +32,7 @@ const App: React.FC = () => {
   const [tickets, setTickets] = useState<Ticket[]>(mockTickets);
   const [companies, setCompanies] = useState<Company[]>(initialCompanies);
   const [allUsers, setAllUsers] = useState<User[]>(initialUsers);
+  const [allContracts, setAllContracts] = useState<Contract[]>(initialContracts);
   const [notifications, setNotifications] = useState<Notification[]>([]);
 
   useEffect(() => {
@@ -113,6 +114,25 @@ const App: React.FC = () => {
           password: userPassword,
       };
       setAllUsers(prev => [...prev, newUser]);
+  };
+
+  const handleUpdateUser = (userId: string, updatedData: Partial<User>) => {
+    setAllUsers(prev => prev.map(u => u.id === userId ? { ...u, ...updatedData } : u));
+  };
+  
+  const handleAddContract = (companyId: string, serviceName: string, details: string, expires: string) => {
+      const newContract: Contract = {
+        id: `cont-${new Date().getTime()}`,
+        companyId,
+        serviceName,
+        details,
+        expires: new Date(expires).toISOString(),
+      };
+      setAllContracts(prev => [...prev, newContract]);
+  };
+
+  const handleUpdateContract = (contractId: string, updatedData: Partial<Contract>) => {
+    setAllContracts(prev => prev.map(c => c.id === contractId ? { ...c, ...updatedData } : c));
   };
 
   const handleUpdateTicketStatus = (ticketId: string, status: TicketStatus) => {
@@ -220,7 +240,17 @@ const App: React.FC = () => {
         return <AdminLeadsPage leads={leads} onUpdateLeadStatus={handleUpdateLeadStatus} onAddLeadNote={handleAddLeadNote} adminUser={user} onBack={() => setView(View.AdminDashboard)} />;
       case View.AdminClients:
         if (!user || user.role !== 'admin') return <HomePage onNavigate={handleNavigate} />;
-        return <AdminClientsPage companies={companies} users={allUsers} contracts={mockAllContracts} onAddCompany={handleAddCompany} onAddUser={handleAddUser} onBack={() => setView(View.AdminDashboard)} />;
+        return <AdminClientsPage 
+          companies={companies} 
+          users={allUsers} 
+          contracts={allContracts} 
+          onAddCompany={handleAddCompany} 
+          onAddUser={handleAddUser} 
+          onAddContract={handleAddContract}
+          onUpdateUser={handleUpdateUser}
+          onUpdateContract={handleUpdateContract}
+          onBack={() => setView(View.AdminDashboard)} 
+        />;
       case View.AdminHelpdesk:
         if (!user || user.role !== 'admin') return <HomePage onNavigate={handleNavigate} />;
         return <AdminHelpdeskPage tickets={tickets} users={allUsers} companies={companies} onUpdateTicketStatus={handleUpdateTicketStatus} onAssignTicket={handleAssignTicket} onNavigate={handleNavigate} onBack={() => setView(View.AdminDashboard)} />;

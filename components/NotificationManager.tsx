@@ -15,7 +15,7 @@ const NotificationManager: React.FC<NotificationManagerProps> = ({ notifications
           <div className="fixed bottom-4 right-4 z-50">
                <button 
                 onClick={() => setIsOpen(true)}
-                className="bg-blue-600 text-white rounded-full shadow-lg w-16 h-16 flex items-center justify-center hover:bg-blue-700 transition-transform transform hover:scale-110"
+                className="bg-incubtek-orange text-white rounded-full shadow-lg w-16 h-16 flex items-center justify-center hover:bg-orange-600 transition-transform transform hover:scale-110"
                 aria-label="Afficher les notifications"
                >
                    <i className="fas fa-bell fa-lg"></i>
@@ -63,7 +63,7 @@ const NotificationManager: React.FC<NotificationManagerProps> = ({ notifications
                 </div>
                 <p className="font-semibold text-gray-800 text-sm">{notif.subject}</p>
                 <details className="mt-2">
-                  <summary className="text-xs text-blue-600 cursor-pointer">Voir le contenu</summary>
+                  <summary className="text-xs text-incubtek-orange cursor-pointer">Voir le contenu</summary>
                   <div className="mt-2 p-2 bg-gray-100 rounded text-xs text-gray-700 whitespace-pre-wrap font-mono">
                     {notif.body.trim()}
                   </div>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import type { Service } from '../types';
 import { View } from '../types';
@@ -16,7 +15,7 @@ const ServiceCard: React.FC<{ service: Service; onClick: () => void }> = ({ serv
     <div className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
       <div className="p-6 flex-grow">
         <div className="flex items-center mb-4">
-            <div className="bg-blue-600 p-3 rounded-full mr-4">
+            <div className="bg-incubtek-orange p-3 rounded-full mr-4">
                 <Icon />
             </div>
             <h3 className="text-xl font-bold text-gray-900">{service.title}</h3>
@@ -26,7 +25,7 @@ const ServiceCard: React.FC<{ service: Service; onClick: () => void }> = ({ serv
       <div className="p-6 bg-gray-50">
         <button
           onClick={onClick}
-          className="w-full bg-blue-100 text-blue-800 font-semibold px-4 py-2 rounded-lg hover:bg-blue-200 transition duration-300"
+          className="w-full bg-orange-100 text-orange-800 font-semibold px-4 py-2 rounded-lg hover:bg-orange-200 transition duration-300"
         >
           Demander un Devis
         </button>
@@ -55,7 +54,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ title, subtitle, services, 
        <div className="text-center mt-12">
         <button
           onClick={() => onNavigate(View.Home)}
-          className="text-blue-600 font-semibold hover:underline"
+          className="text-incubtek-orange font-semibold hover:underline"
         >
           <i className="fas fa-arrow-left mr-2"></i>
           Retour à l'accueil

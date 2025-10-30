@@ -25,7 +25,7 @@ const Header: React.FC<HeaderProps> = ({ user, onNavigate, onLogout }) => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center cursor-pointer" onClick={() => onNavigate(View.Home)}>
-            <div className="bg-blue-600 p-2 rounded-md">
+            <div className="bg-incubtek-orange p-2 rounded-md">
                 <ShieldCheckIcon />
             </div>
             <span className="ml-3 text-2xl font-bold text-gray-800">Incubtek</span>
@@ -42,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({ user, onNavigate, onLogout }) => {
                 </button>
                 <button
                   onClick={onLogout}
-                  className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700"
+                  className="px-4 py-2 text-sm font-medium text-white bg-incubtek-orange rounded-md hover:bg-orange-600"
                 >
                   Déconnexion
                 </button>
@@ -50,7 +50,7 @@ const Header: React.FC<HeaderProps> = ({ user, onNavigate, onLogout }) => {
             ) : (
               <button
                 onClick={() => onNavigate(View.Login)}
-                className="bg-blue-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-blue-700 transition duration-300"
+                className="bg-incubtek-orange text-white font-semibold px-5 py-2 rounded-lg hover:bg-orange-600 transition duration-300"
               >
                 Espace Client
               </button>

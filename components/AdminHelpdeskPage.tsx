@@ -16,7 +16,7 @@ const TICKET_TYPES: TicketType[] = ['Incident', 'Demande'];
 
 const getStatusColor = (status: TicketStatus) => {
     switch(status) {
-        case 'Nouveau': return 'bg-blue-100 text-blue-800';
+        case 'Nouveau': return 'bg-orange-100 text-orange-800';
         case 'En cours': return 'bg-yellow-100 text-yellow-800';
         case 'En attente': return 'bg-purple-100 text-purple-800';
         case 'Résolu': return 'bg-green-100 text-green-800';
@@ -27,7 +27,7 @@ const getStatusColor = (status: TicketStatus) => {
 
 const getTypeColor = (type: TicketType) => {
     switch(type) {
-        case 'Incident': return 'bg-red-100 text-red-800';
+        case 'Incident': return 'bg-orange-100 text-orange-800';
         case 'Demande': return 'bg-green-100 text-green-800';
         default: return 'bg-gray-100 text-gray-800';
     }
@@ -59,7 +59,7 @@ const AdminHelpdeskPage: React.FC<AdminHelpdeskPageProps> = ({ tickets, users, c
           <h1 className="text-3xl font-extrabold text-gray-900">Helpdesk</h1>
           <p className="text-lg text-gray-600">Gestion des tickets de support.</p>
         </div>
-        <button onClick={onBack} className="text-blue-600 font-semibold hover:underline">
+        <button onClick={onBack} className="text-incubtek-orange font-semibold hover:underline">
           <i className="fas fa-arrow-left mr-2"></i>
           Retour au tableau de bord
         </button>
@@ -107,7 +107,7 @@ const AdminHelpdeskPage: React.FC<AdminHelpdeskPageProps> = ({ tickets, users, c
           </thead>
           <tbody>
             {filteredTickets.map(ticket => (
-              <tr key={ticket.id} className={`border-b transition-colors ${ticket.type === 'Incident' ? 'bg-red-50 hover:bg-red-100' : 'hover:bg-gray-50'}`}>
+              <tr key={ticket.id} className={`border-b transition-colors ${ticket.type === 'Incident' ? 'bg-orange-50 hover:bg-orange-100' : 'hover:bg-gray-50'}`}>
                 <td className="p-4">
                   <p className="font-medium text-gray-800">{ticket.title}</p>
                   <p className="text-sm text-gray-500">#{ticket.id.slice(0, 8)} - Créé le {new Date(ticket.createdAt).toLocaleDateString('fr-FR')}</p>
@@ -143,7 +143,7 @@ const AdminHelpdeskPage: React.FC<AdminHelpdeskPageProps> = ({ tickets, users, c
                   </select>
                 </td>
                 <td className="p-4 text-center">
-                  <button onClick={() => onNavigate(View.AdminTicketDetail, ticket.id)} className="text-blue-600 hover:underline font-semibold text-sm">
+                  <button onClick={() => onNavigate(View.AdminTicketDetail, ticket.id)} className="text-incubtek-orange hover:underline font-semibold text-sm">
                     Ouvrir
                   </button>
                 </td>

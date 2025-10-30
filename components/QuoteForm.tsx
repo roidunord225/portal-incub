@@ -81,12 +81,12 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ onBack, preselectedNeed, onAddNew
   if (isSuccess) {
     return (
       <div className="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg text-center">
-        <i className="fas fa-check-circle text-5xl text-green-500 mb-4"></i>
+        <i className="fas fa-check-circle text-5xl text-incubtek-green mb-4"></i>
         <h2 className="text-2xl font-bold text-gray-800 mb-2">Demande envoyée !</h2>
         <p className="text-gray-600 mb-6">Merci pour votre confiance. Nous avons bien reçu votre demande et nous vous contacterons très prochainement. Un email de confirmation vous a été envoyé.</p>
         <button
           onClick={onBack}
-          className="mt-8 bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300"
+          className="mt-8 bg-incubtek-orange text-white font-semibold px-6 py-3 rounded-lg hover:bg-orange-600 transition duration-300"
         >
           Retour à l'accueil
         </button>
@@ -120,7 +120,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ onBack, preselectedNeed, onAddNew
                   type="checkbox"
                   checked={selectedNeeds.has(option)}
                   onChange={() => handleCheckboxChange(option)}
-                  className="h-5 w-5 rounded text-blue-600 focus:ring-blue-500"
+                  className="h-5 w-5 rounded text-incubtek-orange focus:ring-orange-500"
                 />
                 <span>{option}</span>
               </label>
@@ -153,7 +153,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ onBack, preselectedNeed, onAddNew
             <button
                 type="submit"
                 disabled={loading}
-                className="bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center"
+                className="bg-incubtek-orange text-white font-semibold px-8 py-3 rounded-lg hover:bg-orange-600 transition duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center"
             >
                 {loading ? (
                     <>

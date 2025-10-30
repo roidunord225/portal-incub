@@ -12,10 +12,10 @@ interface AdminLeadsPageProps {
 
 const getStatusColor = (status: LeadStatus) => {
     switch(status) {
-        case 'Nouveau': return 'bg-blue-100 text-blue-800';
+        case 'Nouveau': return 'bg-orange-100 text-orange-800';
         case 'Contacté': return 'bg-yellow-100 text-yellow-800';
         case 'Converti': return 'bg-green-100 text-green-800';
-        case 'Perdu': return 'bg-red-100 text-red-800';
+        case 'Perdu': return 'bg-gray-200 text-gray-800';
         default: return 'bg-gray-100 text-gray-800';
     }
 }
@@ -45,14 +45,14 @@ const LeadDetailModal: React.FC<{ lead: Lead; onClose: () => void; onAddNote: (l
                 <div className="p-6 space-y-4 overflow-y-auto">
                     <div>
                         <h3 className="font-semibold text-gray-600 mb-2">Informations de contact</h3>
-                        <p><strong>Email:</strong> <a href={`mailto:${lead.email}`} className="text-blue-600">{lead.email}</a></p>
+                        <p><strong>Email:</strong> <a href={`mailto:${lead.email}`} className="text-incubtek-orange">{lead.email}</a></p>
                         <p><strong>Téléphone:</strong> {lead.phone || 'Non fourni'}</p>
                     </div>
                      <div>
                         <h3 className="font-semibold text-gray-600 mb-2">Besoin</h3>
                         <p className="bg-gray-50 p-3 rounded-md">{lead.description}</p>
                         <div className="flex flex-wrap gap-2 mt-2">
-                           {lead.needs.map(need => <span key={need} className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">{need}</span>)}
+                           {lead.needs.map(need => <span key={need} className="bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-0.5 rounded-full">{need}</span>)}
                         </div>
                     </div>
                     <div>
@@ -72,7 +72,7 @@ const LeadDetailModal: React.FC<{ lead: Lead; onClose: () => void; onAddNote: (l
                 <div className="p-4 border-t bg-gray-50">
                     <h3 className="font-semibold text-gray-600 mb-2">Ajouter une note</h3>
                     <textarea value={newNote} onChange={(e) => setNewNote(e.target.value)} rows={3} className="w-full p-2 border rounded-md" placeholder="Noter une interaction..."></textarea>
-                    <button onClick={handleAddNote} className="mt-2 w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700">
+                    <button onClick={handleAddNote} className="mt-2 w-full bg-incubtek-orange text-white font-semibold py-2 rounded-lg hover:bg-orange-600">
                         Ajouter la note
                     </button>
                 </div>
@@ -93,7 +93,7 @@ const AdminLeadsPage: React.FC<AdminLeadsPageProps> = ({ leads, onUpdateLeadStat
             <h1 className="text-3xl font-extrabold text-gray-900">Gestion des Leads</h1>
             <p className="text-lg text-gray-600">Suivi des nouvelles opportunités commerciales.</p>
         </div>
-         <button onClick={onBack} className="text-blue-600 font-semibold hover:underline">
+         <button onClick={onBack} className="text-incubtek-orange font-semibold hover:underline">
           <i className="fas fa-arrow-left mr-2"></i>
           Retour au tableau de bord
         </button>
@@ -131,7 +131,7 @@ const AdminLeadsPage: React.FC<AdminLeadsPageProps> = ({ leads, onUpdateLeadStat
                             </select>
                         </td>
                         <td className="p-4 text-center">
-                            <button onClick={() => setSelectedLead(lead)} className="text-blue-600 hover:underline font-semibold text-sm">Détails</button>
+                            <button onClick={() => setSelectedLead(lead)} className="text-incubtek-orange hover:underline font-semibold text-sm">Détails</button>
                         </td>
                     </tr>
                 ))}

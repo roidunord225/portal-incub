@@ -23,7 +23,7 @@ const StatCard: React.FC<{ value: number; label: string; icon: string; color: st
 
 const getStatusColor = (status: TicketStatus) => {
     switch(status) {
-        case 'Nouveau': return 'bg-blue-100 text-blue-800';
+        case 'Nouveau': return 'bg-orange-100 text-orange-800';
         case 'En cours': return 'bg-yellow-100 text-yellow-800';
         case 'En attente': return 'bg-purple-100 text-purple-800';
         case 'Résolu': return 'bg-green-100 text-green-800';
@@ -62,8 +62,8 @@ const SupportDashboardPage: React.FC<SupportDashboardPageProps> = ({ user, ticke
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <StatCard value={openTickets} label="Mes Tickets Ouverts" icon="fa-ticket-alt" color="bg-yellow-500" />
-        <StatCard value={resolvedToday} label="Résolus Aujourd'hui" icon="fa-check-circle" color="bg-green-500" />
+        <StatCard value={openTickets} label="Mes Tickets Ouverts" icon="fa-ticket-alt" color="bg-incubtek-orange" />
+        <StatCard value={resolvedToday} label="Résolus Aujourd'hui" icon="fa-check-circle" color="bg-incubtek-green" />
       </div>
 
       <div className="bg-white rounded-xl shadow-lg">

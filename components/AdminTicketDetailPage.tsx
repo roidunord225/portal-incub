@@ -17,7 +17,7 @@ const TICKET_STATUSES: TicketStatus[] = ['Nouveau', 'En cours', 'En attente', 'R
 
 const getStatusColor = (status: TicketStatus) => {
     switch(status) {
-        case 'Nouveau': return 'bg-blue-100 text-blue-800';
+        case 'Nouveau': return 'bg-orange-100 text-orange-800';
         case 'En cours': return 'bg-yellow-100 text-yellow-800';
         case 'En attente': return 'bg-purple-100 text-purple-800';
         case 'Résolu': return 'bg-green-100 text-green-800';
@@ -58,7 +58,7 @@ const AdminTicketDetailPage: React.FC<AdminTicketDetailPageProps> = ({ ticket, u
   return (
     <div>
       <div className="mb-8">
-        <button onClick={onBack} className="text-blue-600 font-semibold hover:underline mb-4">
+        <button onClick={onBack} className="text-incubtek-orange font-semibold hover:underline mb-4">
           <i className="fas fa-arrow-left mr-2"></i>
           Retour à la liste des tickets
         </button>
@@ -74,7 +74,7 @@ const AdminTicketDetailPage: React.FC<AdminTicketDetailPageProps> = ({ ticket, u
             <div className="space-y-4">
               {ticket.messages.map((msg, index) => (
                 <div key={index} className={`flex ${msg.author === user.name ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`max-w-lg p-4 rounded-lg ${msg.author === user.name ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'}`}>
+                  <div className={`max-w-lg p-4 rounded-lg ${msg.author === user.name ? 'bg-incubtek-orange text-white' : 'bg-gray-200 text-gray-800'}`}>
                     <p className="font-bold">{msg.author}</p>
                     {msg.content && <p className="whitespace-pre-wrap">{msg.content}</p>}
                     {msg.attachment && (
@@ -85,7 +85,7 @@ const AdminTicketDetailPage: React.FC<AdminTicketDetailPageProps> = ({ ticket, u
                           rel="noopener noreferrer" 
                           className={`inline-flex items-center p-2 rounded-md transition ${
                             msg.author === user.name 
-                            ? 'bg-blue-400 hover:bg-blue-300' 
+                            ? 'bg-orange-400 hover:bg-orange-300' 
                             : 'bg-gray-300 hover:bg-gray-400'
                           }`}
                         >
@@ -119,11 +119,11 @@ const AdminTicketDetailPage: React.FC<AdminTicketDetailPageProps> = ({ ticket, u
               </div>
             )}
              <div className="flex justify-between items-center mt-4">
-                <label htmlFor="file-upload-admin" className="cursor-pointer text-gray-500 hover:text-blue-600 p-2 rounded-full">
+                <label htmlFor="file-upload-admin" className="cursor-pointer text-gray-500 hover:text-incubtek-orange p-2 rounded-full">
                     <PaperClipIcon className="h-6 w-6" />
                     <input id="file-upload-admin" type="file" className="hidden" onChange={handleFileChange} />
                 </label>
-                <button onClick={handleSendMessage} className="bg-blue-600 text-white font-semibold px-6 py-2 rounded-lg hover:bg-blue-700">
+                <button onClick={handleSendMessage} className="bg-incubtek-orange text-white font-semibold px-6 py-2 rounded-lg hover:bg-orange-600">
                     Envoyer
                 </button>
             </div>

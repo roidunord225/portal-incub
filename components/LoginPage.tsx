@@ -63,7 +63,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onNavigate, allUsers }) 
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition duration-300"
+          className="w-full bg-incubtek-orange text-white font-semibold py-3 rounded-lg hover:bg-orange-600 transition duration-300"
         >
           Connexion
         </button>
@@ -71,7 +71,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onNavigate, allUsers }) 
        <div className="text-center mt-8">
         <button
           onClick={() => onNavigate(View.Home)}
-          className="text-blue-600 font-semibold hover:underline"
+          className="text-incubtek-orange font-semibold hover:underline"
         >
           <i className="fas fa-arrow-left mr-2"></i>
           Retour à l'accueil

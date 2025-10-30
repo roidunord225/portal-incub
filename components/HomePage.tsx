@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { View } from '../types';
 
@@ -14,12 +13,12 @@ const ActionCard: React.FC<{
   onClick: () => void;
 }> = ({ icon, title, description, buttonText, onClick }) => (
   <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col text-center items-center transform hover:-translate-y-2">
-    <i className={`${icon} text-4xl text-blue-600 mb-4`}></i>
+    <i className={`${icon} text-4xl text-incubtek-orange mb-4`}></i>
     <h3 className="text-xl font-bold text-gray-800 mb-2">{title}</h3>
     <p className="text-gray-600 mb-6 flex-grow">{description}</p>
     <button
       onClick={onClick}
-      className="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out w-full"
+      className="bg-incubtek-orange text-white font-semibold px-6 py-3 rounded-lg hover:bg-orange-600 transition duration-300 ease-in-out w-full"
     >
       {buttonText}
     </button>
@@ -31,7 +30,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     <div className="flex flex-col items-center">
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-          Votre infrastructure IT, <span className="text-blue-600">simplifiée</span>.
+          Votre infrastructure IT, <span className="text-incubtek-orange">simplifiée</span>.
         </h1>
         <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
           Incubtek fournit des solutions informatiques robustes et sur-mesure pour accompagner la croissance de votre entreprise, du démarrage à la maturité.
